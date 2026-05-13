@@ -412,43 +412,71 @@ button{font-family:inherit;}
 
 /* ═══════ EMPLOYEE REVIEWS ═══════ */
 .employee-sec{padding:88px 20px;background:var(--white);}
-.employee-in{max-width:1040px;margin:0 auto;}
-.emp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px;}
-@media(max-width:768px){.emp-grid{grid-template-columns:1fr;}}
-@media(min-width:769px) and (max-width:1200px){.emp-grid{grid-template-columns:repeat(2,1fr);}}
+.employee-in{max-width:1100px;margin:0 auto;}
+.emp-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;margin-top:52px;
+  align-items:stretch;
+}
+@media(max-width:600px){.emp-grid{grid-template-columns:1fr;gap:14px;}}
+@media(min-width:601px) and (max-width:1024px){.emp-grid{grid-template-columns:repeat(2,1fr);gap:16px;}}
 .emp-card{
   background:var(--cream);border:1px solid var(--cream-d);
-  border-radius:20px;padding:28px;
+  border-radius:22px;padding:24px 22px;
   box-shadow:0 2px 18px rgba(26,39,68,.05);
   transition:transform .25s ease,box-shadow .25s ease;
-  position:relative;
+  display:flex;flex-direction:column;
 }
 .emp-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(26,39,68,.09);}
-.quote-mark{
-  font-size:40px;font-weight:900;color:var(--gold);
-  line-height:1;margin-bottom:14px;opacity:.6;
-  font-family:'Noto Serif KR',serif;
+/* 프로필 — 카드 상단 */
+.emp-profile{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:16px;
 }
-.emp-text{
-  font-size:14px;color:var(--text);line-height:1.9;
-  margin-bottom:22px;
-}
-.emp-divider{width:28px;height:2px;background:var(--gold);margin-bottom:18px;opacity:.5;}
-.emp-profile{display:flex;align-items:center;gap:12px;}
 .emp-avatar{
-  width:42px;height:42px;border-radius:50%;
+  width:44px;height:44px;border-radius:50%;
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
   display:flex;align-items:center;justify-content:center;
   font-size:15px;font-weight:800;color:#fff;flex-shrink:0;
 }
-.emp-name{font-size:13px;font-weight:800;color:var(--navy);}
-.emp-role{font-size:12px;color:var(--text-s);margin-top:2px;}
-.emp-years{
-  margin-left:auto;
-  background:var(--cream-m);border:1px solid var(--cream-d);
-  border-radius:100px;padding:3px 10px;
-  font-size:12px;font-weight:700;color:var(--text-m);
+.emp-info{flex:1;min-width:0;}
+.emp-name-row{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:6px;margin-bottom:4px;
+}
+.emp-name{
+  font-size:14px;font-weight:800;color:var(--navy);
   white-space:nowrap;
+}
+.emp-years{
+  background:var(--navy);
+  border-radius:100px;padding:2px 9px;
+  font-size:11px;font-weight:700;color:var(--gold);
+  white-space:nowrap;flex-shrink:0;letter-spacing:.01em;
+}
+.emp-role{
+  font-size:12px;color:var(--text-s);line-height:1.5;
+  word-break:keep-all;
+}
+/* 구분선 */
+.emp-divider{
+  width:100%;height:1px;
+  background:var(--cream-d);
+  margin-bottom:15px;
+}
+/* 인용문 */
+.emp-text{
+  font-size:14px;color:var(--text-m);line-height:1.95;
+  word-break:keep-all;overflow-wrap:break-word;
+  flex:1;
+}
+.emp-text::before{
+  content:'"';
+  font-size:18px;font-weight:900;color:var(--gold);
+  line-height:1;margin-right:1px;opacity:.65;
+  font-family:'Noto Serif KR',serif;
+  vertical-align:-.05em;
 }
 
 /* ═══════ PROCESS SECTION ═══════ */
@@ -602,6 +630,135 @@ footer{background:var(--navy);padding:52px 20px 60px;text-align:center;}
 @keyframes pulse{0%,100%{box-shadow:0 6px 28px rgba(201,169,110,.55);}50%{box-shadow:0 10px 38px rgba(201,169,110,.78);}}
 @media(max-width:640px){.float-btn{display:flex;align-items:center;gap:6px;}}
 .float-btn.hidden{display:none !important;}
+
+/* ═══════ MOBILE OPTIMIZATION ═══════ */
+
+/* 네비게이션 */
+@media(max-width:360px){
+  .nav{padding:0 12px;}
+  .nb{padding:6px 8px;font-size:11px;gap:3px;}
+  iconify-icon{display:none;}
+}
+
+/* 히어로 */
+@media(max-width:480px){
+  .hero-in{padding:72px 20px 80px;}
+  .hero-pill{font-size:11px;padding:5px 14px;}
+  .hero-body{font-size:13px;margin-bottom:36px;}
+  .hero-btns{flex-direction:column;max-width:100%;}
+  .btn-lg{width:100%;padding:15px 20px;font-size:14px;}
+}
+
+/* Trust strip */
+@media(max-width:480px){
+  .trust-strip{padding:14px 16px;}
+  .trust-item{font-size:12px;}
+}
+
+/* WHY 섹션 벤토 */
+@media(max-width:480px){
+  .why-sec{padding:60px 16px;}
+  .bento-card{padding:24px 20px;}
+  .bento-num{font-size:clamp(30px,8vw,44px);}
+  .sec-title{margin-bottom:36px;}
+}
+
+/* 시스템 섹션 */
+@media(max-width:768px){
+  .system-sec{padding:64px 16px;}
+  .system-grid{grid-template-columns:1fr;gap:36px;}
+  .system-panels{gap:12px;}
+  .sp1-body{flex-direction:column;gap:8px;}
+  .sp1-sidebar{width:100%;display:flex;gap:6px;flex-wrap:wrap;}
+  .sp1-sb-title{display:none;}
+  .sp1-sb-item{padding:3px 10px;border-radius:100px;font-size:10px;}
+  .sp1-cards{grid-template-columns:1fr;}
+  .sp2-types{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:480px){
+  .system-features{gap:10px;}
+  .sys-feat{padding:12px 14px;}
+  .sp2-stats{grid-template-columns:repeat(3,1fr);}
+  .sp2-type-icon{font-size:16px;}
+  .sp2-type-name{font-size:10px;}
+}
+
+/* 포지션 카드 */
+@media(max-width:768px){
+  .position-sec{padding:60px 16px;}
+  .position-grid{grid-template-columns:1fr;gap:16px;}
+  .pos-card-head{padding:24px 22px 18px;}
+  .pos-card-body{padding:20px 22px 24px;}
+}
+
+/* 혜택 스트립 */
+@media(max-width:640px){
+  .benefit-strip{padding:52px 16px;}
+  .benefit-strip-in{gap:28px;}
+  .benefit-strip-cta .cta-btn{width:100%;justify-content:center;}
+}
+
+/* 팀원 후기 */
+@media(max-width:600px){
+  .employee-sec{padding:60px 16px;}
+  .emp-card{padding:20px 18px;}
+  .emp-name-row{gap:6px;}
+  .emp-name{font-size:13px;}
+  .emp-years{font-size:11px;padding:2px 8px;}
+  .emp-role{font-size:11px;}
+  .emp-text{font-size:13px;}
+}
+
+/* 프로세스 */
+@media(max-width:480px){
+  .process-sec{padding:60px 16px;}
+  .p-step{grid-template-columns:64px 1fr;gap:16px;}
+  .p-num{width:48px;height:48px;font-size:14px;border-radius:14px;}
+  .p-step::before{left:31px;}
+  .p-title{font-size:16px;}
+  .p-desc{font-size:13px;}
+}
+
+/* 폼 */
+@media(max-width:480px){
+  .form-sec{padding:60px 16px 80px;}
+  .form-head{padding:28px 20px 22px;}
+  .form-body{padding:22px 20px;}
+  .row2{grid-template-columns:1fr;}
+  .fg input,.fg select,.fg textarea{font-size:16px;} /* iOS zoom 방지 */
+  .btn-submit{font-size:14px;}
+}
+
+/* 푸터 */
+@media(max-width:480px){
+  footer{padding:40px 16px 48px;}
+  .ft-links{gap:6px 14px;}
+  .ft-info{font-size:12px;line-height:1.9;}
+}
+
+/* 플로팅 버튼 */
+@media(max-width:480px){
+  .float-btn{
+    bottom:14px;
+    padding:12px 22px;
+    font-size:13px;min-height:46px;
+  }
+}
+
+/* 섹션 전체 패딩 모바일 일관성 */
+@media(max-width:480px){
+  .why-sec,.position-sec,.employee-sec,.process-sec{padding-top:60px;padding-bottom:60px;}
+  .company-sec{padding:60px 16px;}
+  .form-sec{padding-top:60px;padding-bottom:80px;}
+}
+
+/* 텍스트 가독성 */
+@media(max-width:480px){
+  .sec-title{font-size:clamp(22px,6vw,32px);margin-bottom:32px;}
+  .bento-title{font-size:16px;}
+  .bento-body{font-size:13px;}
+  .pos-list-item{font-size:13px;}
+}
 </style>
 </head>
 <body>
@@ -973,75 +1130,63 @@ footer{background:var(--navy);padding:52px 20px 60px;text-align:center;}
     <div class="emp-grid">
 
       <div class="emp-card fu">
-        <div class="quote-mark">"</div>
-        <p class="emp-text">
-          이직 전 다른 보험사에서 3년을 보냈는데, 시스템 차이가 이렇게 클 줄 몰랐어요.
-          보험료 비교 하나만으로 고객 설명 시간이 절반으로 줄었고,
-          덕분에 더 많은 고객을 만날 수 있게 됐습니다. 수익도 전 직장 대비 40% 이상 올랐어요.
-        </p>
-        <div class="emp-divider"></div>
         <div class="emp-profile">
           <div class="emp-avatar">박</div>
-          <div>
-            <div class="emp-name">박○○ 설계사</div>
+          <div class="emp-info">
+            <div class="emp-name-row">
+              <span class="emp-name">박○○ 설계사</span>
+              <span class="emp-years">경력 2년차</span>
+            </div>
             <div class="emp-role">이천센터 · FA 자격 보유</div>
           </div>
-          <span class="emp-years">경력이직 2년차</span>
         </div>
+        <div class="emp-divider"></div>
+        <p class="emp-text">이직 전 다른 보험사에서 3년을 보냈는데, 시스템 차이가 이렇게 클 줄 몰랐어요. 보험료 비교 기능 하나만으로 고객 설명 시간이 절반으로 줄었고, 수익도 전 직장 대비 40% 이상 올랐어요.</p>
       </div>
 
       <div class="emp-card fu d1">
-        <div class="quote-mark">"</div>
-        <p class="emp-text">
-          아이 둘을 키우면서 일할 수 있을까 걱정이 컸는데, 인슈런스 매니저 시스템 덕분에
-          복잡한 분석은 시스템이 다 해줘요. 지인 영업만 하던 제가 지금은 새로운 고객도
-          자신 있게 상담합니다. 워킹맘도 충분히 할 수 있는 일이에요.
-        </p>
-        <div class="emp-divider"></div>
         <div class="emp-profile">
           <div class="emp-avatar">김</div>
-          <div>
-            <div class="emp-name">김○○ 설계사</div>
+          <div class="emp-info">
+            <div class="emp-name-row">
+              <span class="emp-name">김○○ 설계사</span>
+              <span class="emp-years">신규 1년차</span>
+            </div>
             <div class="emp-role">원주본부 · 워킹맘 · 신규 입문 출신</div>
           </div>
-          <span class="emp-years">신규입사 1년차</span>
         </div>
+        <div class="emp-divider"></div>
+        <p class="emp-text">아이 둘 키우면서 일할 수 있을까 걱정이 컸는데, 복잡한 분석은 시스템이 다 해줘요. 지인 영업만 하던 제가 지금은 새로운 고객도 자신 있게 상담합니다. 워킹맘도 충분히 할 수 있는 일이에요.</p>
       </div>
 
       <div class="emp-card fu d2">
-        <div class="quote-mark">"</div>
-        <p class="emp-text">
-          전국 센터 네트워크 덕분에 고객 범위가 훨씬 넓어졌습니다.
-          팀장 승진 후 팀을 직접 운영하면서 리더십도 많이 키웠고,
-          수수료 외 별도 인센티브 구조가 투명해서 믿고 일할 수 있어요.
-        </p>
-        <div class="emp-divider"></div>
         <div class="emp-profile">
           <div class="emp-avatar">이</div>
-          <div>
-            <div class="emp-name">이○○ 팀장</div>
+          <div class="emp-info">
+            <div class="emp-name-row">
+              <span class="emp-name">이○○ 팀장</span>
+              <span class="emp-years">경력 3년차</span>
+            </div>
             <div class="emp-role">춘천센터 · 팀장 승진</div>
           </div>
-          <span class="emp-years">경력입사 3년차</span>
         </div>
+        <div class="emp-divider"></div>
+        <p class="emp-text">전국 센터 네트워크 덕분에 고객 범위가 훨씬 넓어졌습니다. 팀장 승진 후 팀을 직접 운영하면서 리더십도 많이 키웠고, 수수료 외 인센티브 구조가 투명해서 믿고 일할 수 있어요.</p>
       </div>
 
       <div class="emp-card fu d3">
-        <div class="quote-mark">"</div>
-        <p class="emp-text">
-          55세에 새 출발이 가능할까 반신반의했는데, 수술비 계산와 재무설계 툴이
-          워낙 잘 되어 있어서 오히려 제 연륜이 강점이 됐습니다.
-          시스템이 분석을 도와주니 경험 많은 제가 고객 신뢰를 얻는 건 어렵지 않아요.
-        </p>
-        <div class="emp-divider"></div>
         <div class="emp-profile">
           <div class="emp-avatar">최</div>
-          <div>
-            <div class="emp-name">최○○ 설계사</div>
-            <div class="emp-role">여주본부 · 경력직 입사 · 만 55세</div>
+          <div class="emp-info">
+            <div class="emp-name-row">
+              <span class="emp-name">최○○ 설계사</span>
+              <span class="emp-years">경력 1년차</span>
+            </div>
+            <div class="emp-role">여주본부 · 경력직 · 만 55세</div>
           </div>
-          <span class="emp-years">경력입사 1년차</span>
         </div>
+        <div class="emp-divider"></div>
+        <p class="emp-text">55세에 새 출발이 가능할까 반신반의했는데, 수술비 계산과 재무설계 툴이 워낙 잘 되어 있어서 오히려 제 연륜이 강점이 됐습니다. 시스템이 분석을 도와주니 고객 신뢰를 얻는 건 어렵지 않아요.</p>
       </div>
 
     </div>
